@@ -5,10 +5,10 @@ FROM steamcmd/steamcmd:latest
 WORKDIR /gmod
 
 # Install required runtime packages
-RUN dpkg --add-architecture i386 && \
-    apt-get update && \
-    apt-get install -y lib32gcc-s1 ca-certificates tmux wget unzip && \
-    rm -rf /var/lib/apt/lists/*
+#RUN dpkg --add-architecture i386 && \
+ #   apt-get update && \
+  #  apt-get install -y lib32gcc-s1 ca-certificates tmux wget unzip && \
+   # rm -rf /var/lib/apt/lists/*
 
 # Create server directory
 RUN mkdir -p /gmod/server
@@ -24,3 +24,4 @@ EXPOSE 27015/udp
 
 # Ensure SteamCMD does not override the entrypoint
 ENTRYPOINT ["/gmod/start.sh"]
+
